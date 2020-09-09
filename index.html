@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mxat</title>
+    <style>
+    	body{
+    		font-family: Calibri;
+    	}
+    	.send{
+    		background-color: green;
+    		padding: 4px;
+    	}
+    	#celphone{
+    		border: black 10px solid;
+    		width: 250px;
+    		border-radius: 15px;
+    		border-bottom: black 40px solid;
+    		border-top: black 30px solid;
+    	}
+    	li{
+    		padding: 8px;
+    		background-color: rgb(200,200,200);
+    		margin-bottom: 4px; 
+    		margin-top: 4px; 
+    		border-radius: 15px;
+    		list-style: none;
+    		margin-left: -30px;
+    		width: 150px;
+    		border-bottom-left-radius: 55px; 
+    		padding-left: 15px;
+    	}
+    	ul{
+    		min-height: 450px;
+    	}
+    	input{
+    		height: 25px;
+    		border-radius: 15px;
+    	}
+    	button{
+    		height: 30px;
+    		border-radius: 7px;
+    	}
+    	#top{
+    		margin-top: -20px;
+    		background-color: green;
+    		height: 38px;
+    		text-align: center;
+    	}
+    </style>
+</head>
+<body>
+	
+ 
+ 	<div id="celphone">
+ 		<div id="top"><h2 id="usu">CHAT</h1></div>
+ 		<ul class="ul" id="messages"></ul>
+		<div class="send">
+		        <input class="text" id="menssagem" placeholder="  Your message">
+		        <button class="btn" id="send_message" onclick="send_message()">Send</button>
+		</div>
+	</div>
+	<script src="/socket.io/socket.io.js">
+		
+	</script>
+
+
+
+<script>
+
+
+
+		document.addEventListener('keydown', function(Send) {
+		
+		    if(Send.key == "Enter"){
+		        send_message()
+		    }
+		    })
+
+
+
+
+
+	    var socket = io();
+
+	    var user_name = window.prompt("Type: ")
+
+	    if(user_name == ""){
+	    	user_name = "anonymous"
+	    }
+	    if(user_name == null){
+	    	user_name = "anonymous"
+	    }
+
+	    socket.emit('chat message', `Hey ${user_name}!`)
+
+
+	   	    function send_message() {
+
+	      	  msg = document.getElementById('menssagem').value;
+
+	          if(msg !== ""){
+
+
+	          socket.emit('chat message', `${user_name}: \n ${msg}`)
+
+
+	          document.getElementById('menssagem').value = ""
+	      }
+	      
+	    }
+
+
+
+	    socket.on('chat message', function(msg){
+
+	        let ul = document.getElementById("messages")
+
+
+	        let li = document.createElement('li')
+
+
+
+	        li.appendChild(document.createTextNode(msg))
+
+
+	        ul.appendChild(li)
+	    });
+ 
+    </script>
+</body>
+</html>
