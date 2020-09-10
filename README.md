@@ -1,4 +1,4 @@
-# WhatsApp_desktop-socket.io-
+# simple_chat_socket.io
 ## https://github.com/socketio
 ## https://socket.io/
 
