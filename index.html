@@ -51,36 +51,21 @@
     </style>
 </head>
 <body>
-	
- 
  	<div id="celphone">
  		<div id="top"><h2 id="usu">CHAT</h1></div>
- 		<ul class="ul" id="messages"></ul>
-		<div class="send">
-		        <input class="text" id="menssagem" placeholder="  Your message">
+ 			<ul class="ul" id="messages"></ul>
+			<div class="send">
+                  	<input class="text" id="menssagem" placeholder="  Your message">
 		        <button class="btn" id="send_message" onclick="send_message()">Send</button>
 		</div>
 	</div>
-	<script src="/socket.io/socket.io.js">
-		
-	</script>
-
-
-
-<script>
-
-
-
+	<script src="/socket.io/socket.io.js"></script>
+	<script>
 		document.addEventListener('keydown', function(Send) {
-		
 		    if(Send.key == "Enter"){
 		        send_message()
 		    }
 		    })
-
-
-
-
 
 	    var socket = io();
 
@@ -94,36 +79,26 @@
 	    }
 
 	    socket.emit('chat message', `Hey ${user_name}!`)
-
-
 	   	    function send_message() {
 
 	      	  msg = document.getElementById('menssagem').value;
 
 	          if(msg !== ""){
 
-
 	          socket.emit('chat message', `${user_name}: \n ${msg}`)
-
 
 	          document.getElementById('menssagem').value = ""
 	      }
 	      
 	    }
 
-
-
 	    socket.on('chat message', function(msg){
 
 	        let ul = document.getElementById("messages")
 
-
 	        let li = document.createElement('li')
 
-
-
 	        li.appendChild(document.createTextNode(msg))
-
 
 	        ul.appendChild(li)
 	    });
