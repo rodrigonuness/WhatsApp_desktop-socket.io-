@@ -1,5 +1,5 @@
 # WhatsApp_desktop-socket.io-
-### A small project made with love, I hope I helped!
+#### A small project made with love, I hope I helped!
 ## Stack
 - Javascript
 - Html 
