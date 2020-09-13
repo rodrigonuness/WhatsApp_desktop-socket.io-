@@ -1,4 +1,4 @@
-# simple_chat_socket.io-
+# simple_chat_socket.io
 #### A small project made with love, I hope I helped!
 ## Stack
 - Javascript
