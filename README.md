@@ -1,5 +1,7 @@
 # simple_chat_socket.io
-#### A small project made with love, I hope I helped!
+
+<img src="https://github.com/rodrigonuness/simple_chat_socket.io/blob/master/chat_socketio.gif" align="right" width="20%">
+
 ## Stack
 - Javascript
 - Html 
@@ -20,5 +22,5 @@
 <img src="https://github.com/rodrigonuness/language_pictures/blob/master/Javascript.png" align="right" width="12%">
 <img src="https://github.com/rodrigonuness/language_pictures/blob/master/html&css.png" align="right" width="20%">
 
-
+#### A small project made with love, I hope I helped!
 ## in progress...
