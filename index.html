@@ -63,44 +63,44 @@
 	<script>
 		document.addEventListener('keydown', function(Send) {
 		    if(Send.key == "Enter"){
-		        send_message()
+		        send_message();
 		    }
 		    })
 
 	    var socket = io();
 
-	    var user_name = window.prompt("Type: ")
+	    var user_name = window.prompt("Type: ");
 
 	    if(user_name == ""){
-	    	user_name = "anonymous"
+	    	user_name = "anonymous";
 	    }
 	    if(user_name == null){
-	    	user_name = "anonymous"
+	    	user_name = "anonymous";
 	    }
 
-	    socket.emit('chat message', `Hey ${user_name}!`)
+	    socket.emit('chat message', `Hey ${user_name}!`);
 	   	    function send_message() {
 
 	      	  msg = document.getElementById('menssagem').value;
 
 	          if(msg !== ""){
 
-	          socket.emit('chat message', `${user_name}: \n ${msg}`)
+	          socket.emit('chat message', `${user_name}: \n ${msg}`);
 
-	          document.getElementById('menssagem').value = ""
+	          document.getElementById('menssagem').value = "";
 	      }
 	      
 	    }
 
 	    socket.on('chat message', function(msg){
 
-	        let ul = document.getElementById("messages")
+	        let ul = document.getElementById("messages");
 
-	        let li = document.createElement('li')
+	        let li = document.createElement('li');
 
-	        li.appendChild(document.createTextNode(msg))
+	        li.appendChild(document.createTextNode(msg));
 
-	        ul.appendChild(li)
+	        ul.appendChild(li);
 	    });
  
     </script>
